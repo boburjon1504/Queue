@@ -1,0 +1,6 @@
+@AsyncCommunication_HostAddress = http://localhost:5227
+
+GET {{AsyncCommunication_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
