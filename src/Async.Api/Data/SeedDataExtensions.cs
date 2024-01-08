@@ -9,12 +9,11 @@ public static class SeedDataExtensions
 {
     public static async ValueTask InitializeSeedAsync(this IServiceProvider serviceProvider)
     {
-        var identityDbContext = serviceProvider.GetRequiredService<IdentityDbContext>();
         var notificationDbContext = serviceProvider.GetRequiredService<NotificationDbContext>();
         var webHostEnvironment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
 
-        if (!await identityDbContext.Users.AnyAsync())
-            await identityDbContext.SeedUsersAsync();
+        if (!await notificationDbContext.Users.AnyAsync())
+            await notificationDbContext.SeedUsersAsync();
 
         if (!await notificationDbContext.EmailTemplates.AnyAsync())
             await notificationDbContext.SeedEmailTemplates(webHostEnvironment);
@@ -23,7 +22,7 @@ public static class SeedDataExtensions
             await notificationDbContext.SaveChangesAsync();
     }
 
-    private static async ValueTask SeedUsersAsync(this IdentityDbContext identityDbContext)
+    private static async ValueTask SeedUsersAsync(this NotificationDbContext identityDbContext)
     {
         if (await identityDbContext.Users.FirstOrDefaultAsync(user => user.Role == RoleType.System) is not null)
             return;

@@ -1,11 +1,6 @@
 ﻿using Async.Application.Common.Identity.Notififcation.Models;
 using Async.Domain.Enum;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Async.Infrostructure.Common.Validators;
 public class EmailMessageValidator : AbstractValidator<EmailMessage>

@@ -15,6 +15,14 @@ public class EmailHistoryConfiguration : IEntityTypeConfiguration<EmailHistory>
         builder.Property(template => template.SenderEmailAddress).IsRequired().HasMaxLength(256);
         builder.Property(template => template.ReceiverEmailAddress).IsRequired().HasMaxLength(256);
         builder.Property(template => template.Subject).IsRequired().HasMaxLength(256);
+        builder.HasOne<EmailTemplate>(history => history.Template)
+            .WithMany(template => template.Histories)
+            .HasForeignKey(history => history.TemplateId);
+
+        builder.HasOne<User>().WithMany().HasForeignKey(history => history.SenderUserId);
+
+        builder.HasOne<User>().WithMany().HasForeignKey(history => history.ReceiverUserId);
+
     }
 }
 
