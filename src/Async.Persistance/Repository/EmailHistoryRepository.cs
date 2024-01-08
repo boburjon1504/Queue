@@ -3,12 +3,7 @@ using Async.Persistance.Cashing.Broker;
 using Async.Persistance.DataContext;
 using Async.Persistance.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Async.Persistance.Repository;
 public class EmailHistoryRepository(NotificationDbContext dbContext, ICacheBroker cacheBroker)

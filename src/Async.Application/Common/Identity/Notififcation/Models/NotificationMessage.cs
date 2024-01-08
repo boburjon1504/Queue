@@ -10,7 +10,7 @@ public abstract class NotificationMessage
 {
     public string Body { get; set; } = default!;
 
-    public NotificationTemplate Template { get; set; } = default!;
+    public EmailTemplate Template { get; set; } = default!;
 
     public Dictionary<string, string> Variables { get; set; } = default!;
 

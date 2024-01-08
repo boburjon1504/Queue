@@ -1,14 +1,9 @@
 ﻿using Async.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Async.Application.Common.Identity.Notififcation.Events;
 public class RenderNotificationEvent:NotificationEvent
 {
-    public NotificationTemplate Template { get; set; } = default!;
+    public EmailTemplate Template { get; set; } = default!;
 
     public User SenderUser { get; init; } = default!;
 

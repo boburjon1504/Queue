@@ -1,13 +1,16 @@
-﻿using Async.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Async.Domain.Common.Entities;
+using Async.Domain.Enum;
 
 namespace Async.Domain.Entities;
-public class EmailTemplate:NotificationTemplate
+public class EmailTemplate : Entity
 {
+    public NotificationType Type { get; set; }
+
+    public NotificationTemplateType TemplateType { get; set; }
+
+    public string Content { get; set; } = default!;
+
+    public IList<EmailHistory> Histories { get; set; } = new List<EmailHistory>();
     public EmailTemplate()
     {
         Type = NotificationType.Email;
